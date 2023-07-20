@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro'
+export async function getStaticPaths(){   // se repite la funcion con la que hicimos el primer fecth
+    const datos = await fetch('https://rickandmortyapi.com/api/character') 
+     const data = await datos.json()
+   
+	 const personajes = data.results 
+     return personajes.map((personaje) => ({
+         params: {
+             id:personaje.id
+         },
+         props:{
+            personaje:personaje
+         }
+     }))
+
+     
+} 
+   
+console.log(Astro.params) 
+console.log(Astro.props)
+
+const {name, status, species, gender, image, created} = Astro.props.personaje
+
+---
+
+
+<Layout>
+    <div class="contenedor-personaje-id">
+       <div class="card-personaje">
+           <img src={image} alt="">
+           <h2>{name}</h2>
+           <p>{status}</p>
+           <p>{species}</p>
+           <p>{gender}</p>
+           <p>{created}</p>
+       </div>
+       <a href="/">Regresar</a>
+    </div>
+
+</Layout>
+
+
+<style>
+    .contenedor-personaje-id{
+        width: 90%;
+        margin: 0px auto;
+        max-width: 1140px;
+    }
+</style>

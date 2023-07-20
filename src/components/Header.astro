@@ -1,0 +1,78 @@
+---
+ 
+
+
+ const mostrar = false
+ import logo from '../../public/logo_rick.png'
+---
+
+
+
+
+
+<header> 
+    <div class="contenedor-header">
+         <div class="col-logo">
+             <img src={logo} alt="">
+         </div>
+         <div class="col-menu">
+            <a href="/docs">Docs</a>
+            <a href="/About">About</a> 
+            <a href="/support">Support US</a>
+         </div>
+    </div>
+</header>
+
+
+<style>
+
+    header{
+        width: 100%;
+        height: 80px;
+        
+    }
+
+    header .contenedor-header{
+        width: 90%;
+        height: inherit;
+        margin: 0px auto;
+        max-width: 1140px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    header .contenedor-header .col-logo{
+        widows: 50%;
+    }
+
+    header .contenedor-header .col-logo img {
+        width: 100px;
+    }
+
+    header .contenedor-header .col-menu {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    header .contenedor-header .col-menu a {
+        color:rgb(51, 51, 51) ;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+    }
+
+    header .contenedor-header .col-menu a:hover{
+        color: #f08d49;
+    }
+
+    
+   
+</style>
+
+<script>
+   console.log('hola')
+</script>
+
